@@ -1,2 +1,2 @@
-# Aplicacacao-Web
+# Aplicacao-Web
 Aplicacao Web para despesas
