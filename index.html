@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Despesas Online">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Despesas Online</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12 cabecalho">
+				<h1>Despesas Online</h1>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 conteudo">
+				<form name="form1" method="post" onchange="somar()">
+				<h3>Despesas Mensais Fixas</h3>
+				Crédito à habitação / Renda de Aluguer:
+				<input type="text" class="form-control" placeholder="Número" name="a1" id="a1" value="0">
+				Água, Luz e Gás:
+				<input type="text" class="form-control" placeholder="Número" name="a2" id="a2" value="0">
+				Telecomunicações:
+				<input type="text" class="form-control" placeholder="Número" name="a3" id="a3" value="0">
+				Combustível e/ou transportes públicos:
+				<input type="text" class="form-control" placeholder="Número" name="a4" id="a4" value="0">
+				Créditos diversos:
+				<input type="text" class="form-control" placeholder="Número" name="a5" id="a5" value="0">
+				Educação:
+				<input type="text" class="form-control" placeholder="Número" name="a6" id="a6" value="0">
+				Outras despesas mensais...:
+				<input type="text" class="form-control" placeholder="Número" name="a7" id="a7" value="0">
+				<br>
+				</form>
+			</div>
+			<div class="span12 conteudo">
+				<form name="form2" method="post" onchange="somar()" class="formulario2">
+				<h3>Despesas Mensais Variáveis</h3>
+				Alimentação preparada em casa
+				<input type="text" class="form-control" placeholder="Valor Minímo" name="b1" value="0">
+				<input type="text" class="form-control" placeholder="Valor Máximo" name="b2" value="0">
+				Restaurantes, Take Away, cafés, bares entre outros do género
+				<input type="text" class="form-control" placeholder="Valor Minímo" name="b3" value="0">
+				<input type="text" class="form-control" placeholder="Valor Máximo" name="b4" value="0">
+				Telemóvel
+				<input type="text" class="form-control" placeholder="Valor Minímo" name="b5" value="0">
+				<input type="text" class="form-control" placeholder="Valor Máximo" name="b6" value="0">
+				Valor de poupança mensal
+				<input type="text" class="form-control" placeholder="Valor Minímo" name="b7" value="0">
+				<input type="text" class="form-control" placeholder="Valor Máximo" name="b8" value="0">
+				Outras despesas mensais variáveis
+				<input type="text" class="form-control" placeholder="Valor Minímo" name="b9" value="0">
+				<input type="text" class="form-control" placeholder="Valor Máximo" name="b10" value="0">
+				<br>
+				<button type="button" class="btn btn-primary" onclick="somar()">Calcular</button>
+				<br>
+				<br>
+			</div>
+			<div class="span12 conteudo">
+				<form name="forms3" class="formulario3"> 
+				<h3>Resultados do cálculo das suas despesas mensais</h3>
+				Total de despesas fixas
+				<input id="despesas-mensais-fixas-input" class="form-control" type="text"   readonly name="s1" id="c1">
+				Total de despesas variáveis
+				<input id="despesas_mensais_fixas_variaveis-input" class="form-control" type="text" readonly name="c2">
+				TOTAL (Despesas Mensais)
+				<input id="despesas-mensais-input" class="form-control" type="text" readonly name="c3">
+				<br>
+				</form>
+			</div>
+		</div>
+		<footer class="footer">
+			<p>Made By: Daniel Sá aka Darko_85</p>
+		</footer>
+	</div>
+	<script type="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript"> 
+	function somar() {
+	
+		// Elementos DOM
+		let despesas_mensais_fixas_input = document.getElementById('despesas-mensais-fixas-input')
+		let despesas_mensais_fixas_variaveis_input = document.getElementById('despesas_mensais_fixas_variaveis-input')
+		let despesas_mensais_input = document.getElementById('despesas-mensais-input')
+		// Variáveis - Despesas Fixas
+		let renda_credito = Number(document.form1.a1.value)
+		let luz_agua_gas = Number(document.form1.a2.value)
+		let telecomunicacoes = Number(document.form1.a3.value)
+		let gota_transportes = Number(document.form1.a4.value)
+		let creditos = Number(document.form1.a5.value)
+		let educacao = Number(document.form1.a6.value)
+		let outras_despesas = Number(document.form1.a7.value)
+		
+		// Total - Despesas Fixas
+		let total_despesas_mensais_fixas = Math.round(
+			renda_credito + luz_agua_gas + telecomunicacoes +
+			gota_transportes + creditos + educacao + outras_despesas)
+
+		despesas_mensais_fixas_input.value = total_despesas_mensais_fixas
+		
+		//Variáveis - Despesas Variáveis
+		
+		let  alimentação_preparada_em_casa1 = Number(document.form2.b1.value) 
+		let  alimentação_preparada_em_casa2 = Number(document.form2.b2.value) 
+		let  restaurantes_Take_Away_cafes1 = Number(document.form2.b3.value) 
+		let  restaurantes_Take_Away_cafes2 = Number(document.form2.b4.value) 
+		let  telemovel1 = Number(document.form2.b5.value) 
+		let  telemovel2 = Number(document.form2.b6.value) 
+		let  valor_de_poupança_mensal1= Number(document.form2.b7.value) 
+		let  valor_de_poupança_mensal2 = Number(document.form2.b8.value) 
+		let  outras_despesas1 = Number(document.form2.b9.value) 
+		let  outras_despesas2 = Number(document.form2.b10.value) 
+		let  alimentação_preparada_em_casat = (alimentação_preparada_em_casa1 + alimentação_preparada_em_casa2)/2 
+		let restaurantes_Take_Away_cafest = (restaurantes_Take_Away_cafes1 + restaurantes_Take_Away_cafes2)/2 
+		let telemovelt = (telemovel1 + telemovel2)/2 
+		let valor_de_poupança_mensalt = (valor_de_poupança_mensal1 + valor_de_poupança_mensal2)/2 
+		let outras_despesast = (outras_despesas1 + outras_despesas2)/2 
+		
+		//Total - Despesas Variáveis
+		
+		let total_despesas_mensais_variaveis = Math.round(alimentação_preparada_em_casat + restaurantes_Take_Away_cafest + telemovelt + valor_de_poupança_mensalt + outras_despesast)
+
+		despesas_mensais_fixas_variaveis_input.value = total_despesas_mensais_variaveis
+
+		//Total- Despesas Mensais
+
+		let despesas_mensais = Math.round(total_despesas_mensais_fixas + total_despesas_mensais_variaveis)
+		
+		despesas_mensais_input.value = despesas_mensais 
+
+		}
+
+	// Chamada da função somar
+	somar()
+	
+	</script>
+</body>
+</html>

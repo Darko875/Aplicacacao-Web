@@ -1,0 +1,24 @@
+.cabecalho{
+	border-bottom: 2px solid #0090FF;
+	color: #0090FF;
+}
+.footer{
+	border-top: 2px solid #0090FF;
+	color: #0090FF;
+}
+.conteudo{
+	color: #0090FF;
+}
+body{
+	height: 100%;
+}
+.container-fluid{
+	height: 100vh;
+}
+.formulario2{
+	border-top: 2px solid #0090FF;
+	border-bottom: 2px solid #0090FF;
+}
+.formulario3{
+	border-top: 2px solid #0090FF;
+}
